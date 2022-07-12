@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangle hypotenuse calculator</title>
+</head>
+<body>
+
+<h1>Triangle hypotenuse calculator</h1>
+
+{% if gip %}
+<h2>Hypotenuse is: {{ gip }}</h2>
+{% endif %}
+
+<form action="{% url 'triangle:index' %}" method="get">{% csrf_token %}
+    {{ get_form.as_p }}
+    <input type="submit" name="submit" value="OK">
+</form>
+
+</body>
+</html>
