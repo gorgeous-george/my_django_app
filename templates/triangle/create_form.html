@@ -9,7 +9,7 @@
 
 <body>
 
-<form action="{% url 'triangle:create-user-form' %}" method="post">
+<form action="{% url 'triangle:create-form' %}" method="post">
     {% csrf_token %}
     {{ form.as_p}}
     <input type="submit" name="submit" value="Create">
