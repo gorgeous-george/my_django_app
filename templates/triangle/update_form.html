@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Model Form</title>
+</head>
+
+<h1>Person - {{ title_text }} {{ obj.pk }}</h1>
+
+<body>
+
+<form action="{% url 'triangle:update-form' pk=obj.pk%}" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" name="submit" value="Update">
+</form>
+
+</body>
+</html>
