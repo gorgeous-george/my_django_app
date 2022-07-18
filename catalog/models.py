@@ -33,3 +33,6 @@ class Product(models.Model):
 class Supplier(models.Model):
     supplier = models.fields.CharField(max_length=30)
     city = models.OneToOneField('City', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.supplier

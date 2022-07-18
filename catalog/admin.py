@@ -1,6 +1,6 @@
-from django.contrib import admin
-
 from catalog.models import City, Client, Product, Supplier
+
+from django.contrib import admin
 
 admin.site.register(Client)
 admin.site.register(Product)
