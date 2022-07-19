@@ -1,3 +1,6 @@
-# from django.contrib import admin
+from django.contrib import admin
 
-# Register your models here.
+from triangle.models import HistoryLog, Person
+
+admin.site.register(HistoryLog)
+admin.site.register(Person)
