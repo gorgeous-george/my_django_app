@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store details</title>
+</head>
+<body>
+     <h3>We have high-rated books affordable for everyone:</h3></p>
+     {% for store in store_books_authors %}
+        <h4>Special offer at store <b>{{ store }}</b></h4>
+         {% if not store.books.all %}
+             <p>Read the best, give us the rest. For the moment we have no special offers.</p>
+            {% endif %}
+        {% for book in store.books.all %}
+            <ul>
+                <li>Book <b>"{{ book.name }}"</b> published {{ book.pubdate }}
+                    has rating <b>{{ book.rating }}</b>
+                    and costs only <b>{{ book.price }}</b>
+                </li>
+            </ul>
+        {% endfor %}
+     {% endfor %}
+    <br>
+    <ul>
+        <li><a href="{{ '/aggregation/stores/' }}">back to Stores</a></li>
+        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
+        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+    </ul>
+</body>
+</html>

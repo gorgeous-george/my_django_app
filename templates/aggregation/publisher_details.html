@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publisher details</title>
+</head>
+<body>
+    <h3>Each publisher has issued a different number of the books</h3></p>
+    {% for publisher in publishers_count %}
+        <ul>
+            <li>{{ publisher.name }} - {{ publisher.num_books }} book(s)</li>
+        </ul>
+    {% endfor %}
+    <br>
+    <ul>
+        <li><a href="{{ '/aggregation/publishers/' }}">back to Publishers</a></li>
+        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
+        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+    </ul>
+</body>
+</html>

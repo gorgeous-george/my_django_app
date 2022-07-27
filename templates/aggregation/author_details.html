@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Author details</title>
+</head>
+<body>
+    <h3>A total sum of authors' age is:</h3> <h2>{{ age.age__sum }} years</h2></p>
+    <h3>The oldest author is:</h3> <h2>{{ age.age__max }} years old</h2></p>
+    <h3>The youngest author is:</h3> <h2>{{ age.age__min }} years old</h2></p>
+    <h3>Average authors's age is:</h3> <h2>{{ age.age__avg }} years old</h2></p>
+    <br>
+    <ul>
+        <li><a href="{{ '/aggregation/authors/' }}">back to Authors</a></li>
+        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
+        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+    </ul>
+</body>
+</html>

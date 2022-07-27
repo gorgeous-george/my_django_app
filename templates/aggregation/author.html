@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <title>Author page</title>
+    <h1>Authors list - click on <a href="{{ '/aggregation/authors/details' }}">details</a> to see more</h1>
+    {% for book in books_authors %}
+        {% for author in book.authors.all %}
+            <ul>
+                <li> <b>{{ author.name }}</b> wrote the book <b>"{{ book.name }}"</b> </li>
+            </ul>
+        {% endfor %}
+    {% endfor %}
+        <br>
+    <ul>
+        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
+        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+    </ul>
+</body>
+</html>
