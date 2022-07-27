@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store page</title>
+</head>
+<body>
+    <h1>Stores list - click on <a href="{{ '/aggregation/stores/details' }}">details</a> to see more</h1>
+    <h3>You can buy the books in the following stores:</h3>
+    {% for store in store_books_authors %}
+        Store <b>{{ store.name }}</b> sells the book(s):
+        {% for book in store.books.all %}
+            {% for author in book.authors.all %}
+            <ul>
+                <li><b>{{ book.name }}</b> (author <b>{{ author.name }}</b>)
+                    by price <b>{{ book.price }}</b>
+                </li>
+
+            </ul>
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    <br>
+    <ul>
+        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
+        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <title>Book page</title>
+    <h1>Books list - click on <a href="{{ '/aggregation/books/details' }}">details</a> to see more</h1>
+    {% for element in publishers_books %}
+        <ul>
+            <li><b>{{ element }}</b> - published by
+                <b>{{ element.publisher }}</b> at
+                <b>{{ element.pubdate }}</b>
+            </li>
+        </ul>
+    {% endfor %}
+    <br>
+    <ul>
+        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
+        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+    </ul>
+</body>
+</html>

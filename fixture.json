@@ -1,0 +1,197 @@
+[
+{
+  "model": "aggregation.author",
+  "pk": 1,
+  "fields": {
+    "name": "Skorohod Oleksandr",
+    "age": 70
+  }
+},
+{
+  "model": "aggregation.author",
+  "pk": 2,
+  "fields": {
+    "name": "Shablovskyi Taras Mykhaylovich",
+    "age": 65
+  }
+},
+{
+  "model": "aggregation.author",
+  "pk": 3,
+  "fields": {
+    "name": "Chyhyrynskyi Yan Mykhilovych",
+    "age": 60
+  }
+},
+{
+  "model": "aggregation.author",
+  "pk": 4,
+  "fields": {
+    "name": "Yavornytskyi Dmytro Ivanovych",
+    "age": 50
+  }
+},
+{
+  "model": "aggregation.author",
+  "pk": 5,
+  "fields": {
+    "name": "Polonska-Vasylenko Nataliia",
+    "age": 45
+  }
+},
+{
+  "model": "aggregation.publisher",
+  "pk": 1,
+  "fields": {
+    "name": "Naddnipryanochka"
+  }
+},
+{
+  "model": "aggregation.publisher",
+  "pk": 2,
+  "fields": {
+    "name": "Mystetztvo"
+  }
+},
+{
+  "model": "aggregation.publisher",
+  "pk": 3,
+  "fields": {
+    "name": "Veselka"
+  }
+},
+{
+  "model": "aggregation.publisher",
+  "pk": 4,
+  "fields": {
+    "name": "Lybid"
+  }
+},
+{
+  "model": "aggregation.book",
+  "pk": 1,
+  "fields": {
+    "name": "Kherson: yesterday and today",
+    "pages": 252,
+    "price": "200.00",
+    "rating": 9.0,
+    "publisher": 1,
+    "pubdate": "2008-01-01",
+    "authors": [
+      1
+    ]
+  }
+},
+{
+  "model": "aggregation.book",
+  "pk": 2,
+  "fields": {
+    "name": "Kherson region - Photobook",
+    "pages": 143,
+    "price": "300.00",
+    "rating": 10.0,
+    "publisher": 2,
+    "pubdate": "1990-01-01",
+    "authors": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "aggregation.book",
+  "pk": 3,
+  "fields": {
+    "name": "Zaporizzhya",
+    "pages": 447,
+    "price": "500.00",
+    "rating": 10.0,
+    "publisher": 3,
+    "pubdate": "1995-01-01",
+    "authors": [
+      4
+    ]
+  }
+},
+{
+  "model": "aggregation.book",
+  "pk": 4,
+  "fields": {
+    "name": "History of Ukraine part 2",
+    "pages": 608,
+    "price": "150.00",
+    "rating": 8.0,
+    "publisher": 4,
+    "pubdate": "1992-01-01",
+    "authors": [
+      5
+    ]
+  }
+},
+{
+  "model": "aggregation.book",
+  "pk": 5,
+  "fields": {
+    "name": "History of Ukraine part 2",
+    "pages": 608,
+    "price": "150.00",
+    "rating": 9.0,
+    "publisher": 4,
+    "pubdate": "1993-01-01",
+    "authors": [
+      5
+    ]
+  }
+},
+{
+  "model": "aggregation.book",
+  "pk": 6,
+  "fields": {
+    "name": "History of Ukraine",
+    "pages": 640,
+    "price": "150.00",
+    "rating": 9.0,
+    "publisher": 4,
+    "pubdate": "1993-01-01",
+    "authors": [
+      5
+    ]
+  }
+},
+{
+  "model": "aggregation.store",
+  "pk": 1,
+  "fields": {
+    "name": "Naddnipryanochka",
+    "books": [
+      1
+    ]
+  }
+},
+{
+  "model": "aggregation.store",
+  "pk": 2,
+  "fields": {
+    "name": "Petrovka bazar",
+    "books": [
+      2,
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "aggregation.store",
+  "pk": 3,
+  "fields": {
+    "name": "Hostel_11",
+    "books": [
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}
+]
