@@ -1,0 +1,36 @@
+from datetime import timedelta
+
+from django.shortcuts import redirect, render
+from django.utils import timezone
+
+from test_celery.forms import SendEmail
+from test_celery.tasks import send_email_task
+
+
+def send_email(request):
+    if request.method == 'POST':
+        form = SendEmail(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            message_text = form.cleaned_data['message_text']
+            recipient_email = form.cleaned_data['recipient_email']
+            email_datetime = form.cleaned_data['email_datetime'] + timedelta(hours=3)  # todo: FIND WAY TO AVOID TIMEZONE BUG
+            send_email_task.apply_async((subject, message_text, recipient_email), eta=email_datetime)
+            return redirect('/send_email/success/')
+    else:
+        form = SendEmail(initial={"email_datetime": timezone.now()})
+    return render(
+        request,
+        "test_celery/index.html",
+        {
+            "form": form,
+        }
+    )
+
+
+def send_email_success(request):
+    return render(request, "test_celery/success.html")
+
+
+def send_email_failure(request):
+    return render(request, "test_celery/failure.html")
