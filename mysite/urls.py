@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('aggregation/', include('aggregation.urls')),
     path('catalog/', include('catalog.urls')),
+    path('send_email/', include('test_celery.urls')),
     path('triangle/', include('triangle.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
 ]
