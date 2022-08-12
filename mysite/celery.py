@@ -24,8 +24,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'parse_5_quotes_every_odd_hour': {
         'task': 'test_celery.tasks.parse_5_quotes',
-        'schedule': crontab(minute=1),
-        # 'schedule': crontab(minute=0, hour="1-23/2"),
+        'schedule': crontab(minute=0, hour="1-23/2"),
     },
 }
 
