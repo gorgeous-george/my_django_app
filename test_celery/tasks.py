@@ -30,7 +30,6 @@ def parse_5_quotes():
     while True:
         r = requests.get(url)
         soup = BeautifulSoup(r.content, 'html.parser')
-        next_button_url = soup.find('li', {'class': 'next'}).a.get('href')
         # take all quotes on the page
         parsed_quotes = soup.find_all('div', {'class': 'quote'})
         # iteration through each quote on the page
@@ -60,13 +59,16 @@ def parse_5_quotes():
         if counter == 5:
             break
         # update url to parse the next page or break the cycle "while True:" if current page is the last page
-        url = base_url + next_button_url
-        if not next_button_url:  # so this is the last page
+        next_button = soup.find('li', {'class': 'next'})
+        if next_button:
+            next_button_url = soup.find('li', {'class': 'next'}).a.get('href')
+            url = base_url + next_button_url
+        else:  # so this is the last page
             send_mail(
                 'parsing task completed',
                 'all quotes have been parsed',
                 'sender@abc.com',
-                'recepient@abc.com',
+                ['recepient@abc.com'],
                 fail_silently=False,
             )
             break
