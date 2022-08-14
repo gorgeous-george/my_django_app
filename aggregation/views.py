@@ -1,8 +1,11 @@
 from aggregation.models import Author, Book, Publisher, Store
 
-
+from django.contrib.auth.decorators import login_required
 from django.db.models import Avg, Count, Max, Min, Prefetch, Q, Sum
 from django.shortcuts import render
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+from django.utils.decorators import method_decorator
+from django.views.generic.detail import DetailView
 
 
 def index(request):
@@ -99,3 +102,43 @@ def store_details(request):
             'store_books_authors': store_books_authors
         }
     )
+
+
+class BookDetailView(DetailView):
+    model = Book
+
+
+class BookListView(ListView):
+    model = Book
+    queryset = Book.objects.select_related("publisher")
+    paginate_by = 3
+
+
+@method_decorator(login_required, name='dispatch')
+class BookCreate(CreateView):
+    model = Book
+    queryset = Book.objects.select_related("publisher")
+    fields = ['name', 'pages', 'price', 'rating', 'pubdate', 'publisher']
+    success_url = 'http://127.0.0.1:8000/aggregation/book_create/'
+    initial = {
+        'name': 'test name',
+        'pages': 123,
+        'price': 123,
+        'rating': 10,
+        'pubdate': '2022-02-02',
+    }
+
+
+@method_decorator(login_required, name='dispatch')
+class BookUpdate(UpdateView):
+    Model = Book
+    queryset = Book.objects.select_related("publisher")
+    fields = ['name', 'pages', 'price', 'rating', 'pubdate', 'publisher']
+    success_url = 'http://127.0.0.1:8000/aggregation/book_update/10'
+
+
+@method_decorator(login_required, name='dispatch')
+class BookDelete(DeleteView):
+    Model = Book
+    queryset = Book.objects.select_related("publisher")
+    success_url = 'http://127.0.0.1:8000/aggregation/book_delete/7'
