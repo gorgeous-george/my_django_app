@@ -1,10 +1,10 @@
-import requests
-
 from bs4 import BeautifulSoup
 
 from celery import shared_task
 
 from django.core.mail import send_mail
+
+import requests
 
 from test_celery.models import Author, Quote
 

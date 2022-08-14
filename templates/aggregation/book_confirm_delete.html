@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Book</title>
+</head>
+<body>
+    <h1>This is class-based DeleteView form</h1>
+    <p>Are you sure you want to delete the book:
+        <br><br>
+        ID: {{ book.id }}
+        <br>
+        NAME: {{ book.name }}?
+        <br>
+    </p>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Yes, delete."/>
+    </form>
+
+</body>
+</html>
