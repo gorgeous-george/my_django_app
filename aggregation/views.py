@@ -1,14 +1,11 @@
-from django.urls import reverse_lazy
-
 from aggregation.models import Author, Book, Publisher, Store
 
 from django.contrib.auth.decorators import login_required
 from django.db.models import Avg, Count, Max, Min, Prefetch, Q, Sum
 from django.shortcuts import render
-from django.views import View
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.views.generic.detail import DetailView
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from django.utils.decorators import method_decorator
+from django.views.generic.detail import DetailView
 
 
 def index(request):

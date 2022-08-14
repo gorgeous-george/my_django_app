@@ -1,9 +1,9 @@
 from aggregation.views import \
     BookCreate, \
     BookDelete, \
-    BookUpdate, \
     BookListView, \
     BookDetailView, \
+    BookUpdate, \
     author, \
     author_details, \
     book, \
