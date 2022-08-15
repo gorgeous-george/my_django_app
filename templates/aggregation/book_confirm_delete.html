@@ -6,17 +6,30 @@
 </head>
 <body>
     <h1>This is class-based DeleteView form</h1>
-    <p>Are you sure you want to delete the book:
-        <br><br>
-        ID: {{ book.id }}
-        <br>
-        NAME: {{ book.name }}?
-        <br>
+    <p>
+        There are {{ book_list.count }} books with the following IDs:
+        {% for book in book_list %}
+            <a href="{% url 'aggregation:book_delete' pk=book.id %}">{{ book.id }}</a>
+        {% endfor %}
     </p>
+    <p>Are you sure you want to delete the book:</p>
+    <ul>
+        <li>Book name : {{ object.name }}</li>
+        <li>pages : {{ object.pages }}</li>
+        <li>price : {{ object.price }}</li>
+        <li>rating : {{ object.rating }}</li>
+        <li>pubdate : {{ object.pubdate }}</li>
+    </ul>
+    <br>
     <form action="" method="POST">
       {% csrf_token %}
       <input type="submit" value="Yes, delete."/>
     </form>
-
+    <br>
+    <ul>
+        <li><a href="{% url 'aggregation:cbv_index' %}">back to Aggregation CBV index</a></li>
+        <li><a href="{% url 'aggregation:index' %}">back to Aggregation index</a></li>
+        <li><a href="{% url 'admin:app_list' app_label='aggregation' %}">back to Admin Module </a></li>
+    </ul>
 </body>
 </html>

@@ -9,12 +9,14 @@
 <h1>Aggregation index - check this out</h1>
 
 <ul>
-    <li><a href="{{ '/aggregation/authors' }}">Authors</a></li>
-    <li><a href="{{ '/aggregation/books' }}">Books</a></li>
-    <li><a href="{{ '/aggregation/publishers' }}">Publishers</a></li>
-    <li><a href="{{ '/aggregation/stores' }}">Stores</a></li>
+    <li><a href="{% url 'aggregation:author' %}">Authors</a></li>
+    <li><a href="{% url 'aggregation:book' %}">Books</a></li>
+    <li><a href="{% url 'aggregation:publisher' %}">Publishers</a></li>
+    <li><a href="{% url 'aggregation:store' %}">Stores</a></li>
     <br>
-    <li><a href="{{ '/admin' }}">back to Admin Module</a></li>
+    <li><a href="{% url 'aggregation:cbv_index' %}">Class-based views for Book model</a></li>
+    <br>
+    <li><a href="{% url 'admin:app_list' app_label='aggregation' %}">back to Admin Module </a></li>
 
 </ul>
 

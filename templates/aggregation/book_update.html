@@ -2,23 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Book Create form</title>
 </head>
 <body>
-    <title>Book view page</title>
-    <h1>This is class-based Detail View of Book model</h1>
-    <p>
+    <h1>This is class-based UpdateView form</h1>
+     <p>
         There are {{ book_list.count }} books with the following IDs:
         {% for book in book_list %}
-            <a href="{% url 'aggregation:book_detail' pk=book.id %}">{{ book.id }}</a>
+            <a href="{% url 'aggregation:book_update' pk=book.id %}">{{ book.id }}</a>
         {% endfor %}
     </p>
-    <ul>
-        <li>Book name : {{ object.name }}</li>
-        <li>pages : {{ object.pages }}</li>
-        <li>price : {{ object.price }}</li>
-        <li>rating : {{ object.rating }}</li>
-        <li>pubdate : {{ object.pubdate }}</li>
-    </ul>
+    <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
     <br>
     <ul>
         <li><a href="{% url 'aggregation:cbv_index' %}">back to Aggregation CBV index</a></li>

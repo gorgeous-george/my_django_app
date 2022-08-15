@@ -5,7 +5,7 @@
     <title>Store page</title>
 </head>
 <body>
-    <h1>Stores list - click on <a href="{{ '/aggregation/stores/details' }}">details</a> to see more</h1>
+    <h1>Stores list - click on <a href="{% url 'aggregation:store_details' %}">details</a> to see more</h1>
     <h3>You can buy the books in the following stores:</h3>
     {% for store in store_books_authors %}
         Store <b>{{ store.name }}</b> sells the book(s):
@@ -22,8 +22,8 @@
     {% endfor %}
     <br>
     <ul>
-        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
-        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+        <li><a href="{% url 'aggregation:index' %}">back to Aggregation index</a></li>
+        <li><a href="{% url 'admin:app_list' app_label='aggregation' %}">back to Admin Module </a></li>
     </ul>
 </body>
 </html>

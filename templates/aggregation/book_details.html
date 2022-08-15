@@ -8,9 +8,9 @@
 <h3>The database contains the following number of books published in 1993:</h3> <h2>{{ number_1993 }} books</h2></p>
     <br>
     <ul>
-        <li><a href="{{ '/aggregation/books/' }}">back to Books</a></li>
-        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
-        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+        <li><a href="{% url 'aggregation:book' %}">back to Books</a></li>
+        <li><a href="{% url 'aggregation:index' %}">back to Aggregation index</a></li>
+        <li><a href="{% url 'admin:app_list' app_label='aggregation' %}">back to Admin Module </a></li>
     </ul>
 </body>
 </html>

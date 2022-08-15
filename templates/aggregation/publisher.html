@@ -5,7 +5,7 @@
     <title>Publisher page</title>
 </head>
 <body>
-    <h1>Publishers list - click on <a href="{{ '/aggregation/publishers/details' }}">details</a> to see more</h1>
+    <h1>Publishers list - click on <a href="{% url 'aggregation:publisher_details' %}">details</a> to see more</h1>
     {% for book in publishers_books %}
         <ul>
             <li> <b>{{ book.publisher }}</b> published the book <b>"{{ book.name }}"</b> </li>
@@ -13,8 +13,8 @@
         {% endfor %}
     <br>
     <ul>
-        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
-        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+        <li><a href="{% url 'aggregation:index' %}">back to Aggregation index</a></li>
+        <li><a href="{% url 'admin:app_list' app_label='aggregation' %}">back to Admin Module </a></li>
     </ul>
 </body>
 </html>
