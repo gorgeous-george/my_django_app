@@ -12,13 +12,15 @@
             <a href="{% url 'aggregation:book_delete' pk=book.id %}">{{ book.id }}</a>
         {% endfor %}
     </p>
-    <p>Are you sure you want to delete the book:
-        <br><br>
-        ID: {{ book.id }}
-        <br>
-        NAME: {{ book.name }}?
-        <br>
-    </p>
+    <p>Are you sure you want to delete the book:</p>
+    <ul>
+        <li>Book name : {{ object.name }}</li>
+        <li>pages : {{ object.pages }}</li>
+        <li>price : {{ object.price }}</li>
+        <li>rating : {{ object.rating }}</li>
+        <li>pubdate : {{ object.pubdate }}</li>
+    </ul>
+    <br>
     <form action="" method="POST">
       {% csrf_token %}
       <input type="submit" value="Yes, delete."/>
