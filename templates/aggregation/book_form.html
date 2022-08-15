@@ -10,5 +10,11 @@
     {{ form.as_p }}
     <input type="submit" value="Save">
 </form>
+    <br>
+    <ul>
+        <li><a href="{% url 'aggregation:cbv_index' %}">back to Aggregation CBV index</a></li>
+        <li><a href="{% url 'aggregation:index' %}">back to Aggregation index</a></li>
+        <li><a href="{% url 'admin:app_list' app_label='aggregation' %}">back to Admin Module </a></li>
+    </ul>
 </body>
 </html>

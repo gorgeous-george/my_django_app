@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CBV index</title>
+</head>
+<body>
+    <h1>Index of Class-based views for Book model</h1>
+    <ul>
+        <li><a href="{% url 'aggregation:book_detail' pk=1 %}">Book detail view</a></li>
+        <li><a href="{% url 'aggregation:book_list_view' %}">Book list view with pagination</a></li>
+        <li><a href="{% url 'aggregation:book_create' %}">Book create view</a></li>
+        <li><a href="{% url 'aggregation:book_update' pk=1 %}">Book update view</a></li>
+        <li><a href="{% url 'aggregation:book_delete' pk=1 %}">Book delete view</a></li>
+    </ul>
+    <br>
+    <ul>
+        <li><a href="{% url 'aggregation:index' %}">back to Aggregation index</a></li>
+        <li><a href="{% url 'admin:app_list' app_label='aggregation' %}">back to Admin Module </a></li>
+    </ul>
+</body>
+</html>

@@ -11,9 +11,9 @@
     <h3>Average authors's age is:</h3> <h2>{{ age.age__avg }} years old</h2></p>
     <br>
     <ul>
-        <li><a href="{{ '/aggregation/authors/' }}">back to Authors</a></li>
-        <li><a href="{{ '/aggregation/' }}">back to Aggregation index</a></li>
-        <li><a href="{{ '/admin/' }}">back to Admin Module </a></li>
+        <li><a href="{% url 'aggregation:author' %}">back to Authors</a></li>
+        <li><a href="{% url 'aggregation:index' %}">back to Aggregation index</a></li>
+        <li><a href="{% url 'admin:app_list' app_label='aggregation' %}">back to Admin Module </a></li>
     </ul>
 </body>
 </html>

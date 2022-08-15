@@ -129,6 +129,13 @@ class BookCreate(CreateView):
         'pubdate': '2022-02-02',
     }
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['book_list'] = Book.objects.all()
+        return context
+
 
 @method_decorator(login_required, name='dispatch')
 class BookUpdate(UpdateView):
@@ -137,9 +144,23 @@ class BookUpdate(UpdateView):
     fields = ['name', 'pages', 'price', 'rating', 'pubdate', 'publisher']
     success_url = reverse_lazy('aggregation:success')
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['book_list'] = Book.objects.all()
+        return context
+
 
 @method_decorator(login_required, name='dispatch')
 class BookDelete(DeleteView):
     Model = Book
     queryset = Book.objects.select_related("publisher")
     success_url = reverse_lazy('aggregation:success')
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['book_list'] = Book.objects.all()
+        return context

@@ -2,18 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Success</title>
 </head>
 <body>
-    <title>Book page</title>
-    <h1>Books list - click on <a href="{% url 'aggregation:book_details' %}">details</a> to see more</h1>
-    {% for element in publishers_books %}
-        <ul>
-            <li><b>{{ element }}</b> - published by
-                <b>{{ element.publisher }}</b> at
-                <b>{{ element.pubdate }}</b>
-            </li>
-        </ul>
-    {% endfor %}
+    <h1>Operation has been performed successfully</h1>
     <br>
     <ul>
         <li><a href="{% url 'aggregation:cbv_index' %}">back to Aggregation CBV index</a></li>
