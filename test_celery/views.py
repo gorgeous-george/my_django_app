@@ -38,7 +38,7 @@ def send_email_failure(request):
     return render(request, "test_celery/failure.html")
 
 
-class AuthorView(ListView):
+class QuoteView(ListView):
     model = Quote
     queryset = Quote.objects.select_related("authors")
     paginate_by = 1000
