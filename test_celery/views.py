@@ -2,8 +2,10 @@ from datetime import timedelta
 
 from django.shortcuts import redirect, render
 from django.utils import timezone
+from django.views.generic import ListView
 
 from test_celery.forms import SendEmail
+from test_celery.models import Quote
 from test_celery.tasks import send_email_task
 
 
@@ -34,3 +36,9 @@ def send_email_success(request):
 
 def send_email_failure(request):
     return render(request, "test_celery/failure.html")
+
+
+class AuthorView(ListView):
+    model = Quote
+    queryset = Quote.objects.select_related("authors")
+    paginate_by = 1000
