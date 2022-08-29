@@ -19,10 +19,10 @@ class SendEmail(forms.Form):
     )
     email_datetime = forms.DateTimeField()
 
-    def clean_email_datetime(self):
-        data = self.cleaned_data['email_datetime']
-        two_days_limit = timezone.now() + timedelta(hours=48)
-        current_time = timezone.now()
-        if not current_time < data < two_days_limit:
-            raise ValidationError('Please choose another time. Time should be between current and next 48 hours')
-        return data
+    # def clean_email_datetime(self):
+    #     data = self.cleaned_data['email_datetime']
+    #     two_days_limit = timezone.now() + timedelta(hours=48)
+    #     current_time = timezone.now()
+    #     if not current_time < data < two_days_limit:
+    #         raise ValidationError('Please choose another time. Time should be between current and next 48 hours')
+    #     return data
