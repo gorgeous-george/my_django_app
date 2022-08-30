@@ -19,7 +19,7 @@ from test_celery.tasks import send_email_task
 #             subject = form.cleaned_data['subject']
 #             message_text = form.cleaned_data['message_text']
 #             recipient_email = form.cleaned_data['recipient_email']
-#             # email_datetime = form.cleaned_data['email_datetime'] + timedelta(hours=3)  # todo: FIND WAY TO AVOID TIMEZONE BUG
+#             # email_datetime = form.cleaned_data['email_datetime'] + timedelta(hours=3)  # todo: resolve timezone bug
 #             # send_email_task.apply_async((subject, message_text, recipient_email), eta=email_datetime)
 #             send_email_task.delay(subject, message_text, recipient_email)
 #             messages.add_message(request, messages.SUCCESS, 'Message sent')
@@ -34,7 +34,8 @@ from test_celery.tasks import send_email_task
 #         }
 #     )
 
-def send_email(request, form, template_name):
+
+def contact(request):
     data = dict()
     if request.method == 'POST':
         form = SendEmail(request.POST)
@@ -44,15 +45,20 @@ def send_email(request, form, template_name):
             recipient_email = form.cleaned_data['recipient_email']
             send_email_task.delay(subject, message_text, recipient_email)
             data['form_is_valid'] = True
-            message = ['Message sent']
+            messages.add_message(request, messages.SUCCESS, 'Message sent')
             data['message_list'] = render_to_string('test_celery/messages.html', {
-                'messages': message
+                'messages': messages
             })
-    else:
-        data['form_is_valid'] = False
-    context = {'form': form}
-    data['html_form'] = render_to_string(template_name, context, request=request)
+        else:
+            data['form_is_valid'] = False
+        context = {'form': form}
+        data['html_form'] = render_to_string('test_celery/contact.html', context, request=request)
     return JsonResponse(data)
+
+
+def send_email(request):
+    return render(request, "test_celery/index.html")
+
 
 def send_email_success(request):
     return render(request, "test_celery/index.html")
